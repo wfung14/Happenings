@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from .models import Event
 
 # Define the home view
 
@@ -9,6 +10,11 @@ def home(request):
     # Include an .html file extension - unlike when rendering EJS templates
     return render(request, 'home.html')
 
+def events_index(request):
+    events = Event.objects.all()
+    return render(request, 'events/index.html', {
+        'events': events
+    })
 
 def signup(request):
     error_message = ''
@@ -30,4 +36,4 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 def about(request):
-  return render(request, 'about.html')
+    return render(request, 'about.html')
