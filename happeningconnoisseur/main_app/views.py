@@ -6,8 +6,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import EventForm
 
 
-
-
 def events_index(request):
     events = Event.objects.all()
     return render(request, 'events/index.html', {
@@ -18,8 +16,7 @@ def events_index(request):
 @login_required
 def events_detail(request, event_id):
     event = Event.objects.get(id=event_id)
-    event_form = EventForm()
-    return render(request, 'events/detail.html', {'event': event, 'event_form': event_form})
+    return render(request, 'events/detail.html', {'event': event})
 
 
 @login_required
@@ -55,4 +52,3 @@ def signup(request):
 
 def about(request):
     return render(request, 'about.html')
-
