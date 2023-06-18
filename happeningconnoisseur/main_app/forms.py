@@ -7,4 +7,5 @@ class EventForm(ModelForm):
     class Meta:
         model = Event
         fields = ['name', 'location',
-                  'date', 'type']
+                  'date', 'type_event']
+        success_url = '/' 

@@ -5,15 +5,9 @@ from .models import Event
 from django.contrib.auth.decorators import login_required
 from .forms import EventForm
 
-# Define the home view
 
 
-def home(request):
-    # Include an .html file extension - unlike when rendering EJS templates
-    return render(request, 'events/index.html')
 
-
-@login_required
 def events_index(request):
     events = Event.objects.all()
     return render(request, 'events/index.html', {
@@ -28,13 +22,14 @@ def events_detail(request, event_id):
     return render(request, 'events/detail.html', {'event': event, 'event_form': event_form})
 
 
-# @login_required
+@login_required
 def events_add(request):
     error_message = ''
     event_form = EventForm()
     form = EventForm(request.POST)
     if form.is_valid():
         new_event = form.save()
+        return redirect('/')
     return render(request, 'events/add.html', {'event_form': event_form})
 
 
@@ -60,3 +55,4 @@ def signup(request):
 
 def about(request):
     return render(request, 'about.html')
+
