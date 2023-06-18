@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col s6">
+  <form method="POST">
+    {% csrf_token %}
+    {{ event_form.as_p }}
+    <input type="submit" class="btn" value="Add Event" />
+  </form>
+</div>
+{% endblock %}
