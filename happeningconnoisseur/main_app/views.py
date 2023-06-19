@@ -25,6 +25,8 @@ def events_add(request):
     event_form = EventForm()
     form = EventForm(request.POST)
     if form.is_valid():
+        event = form.save(commit=False)
+        event.user = request.user
         new_event = form.save()
         return redirect('/')
     return render(request, 'events/add.html', {'event_form': event_form})
