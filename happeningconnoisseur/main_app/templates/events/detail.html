@@ -13,4 +13,18 @@
       </div>
     </div>
 
+    <div>
+      <form action="">
+        <input list="vendors" name="vendors">
+        <datalist id="vendors">
+          {% for vendor in vendors %}
+          <option value="{{ vendor.name }}">
+            {% endfor %}
+        </datalist>
+        <input type="submit">
+
+
+      </form>
+    </div>
+
 {% endblock %}
