@@ -18,8 +18,6 @@ class Vendor(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
-    # food = models.CharField(max_length=250)
-    # drinks = models.CharField(max_length=250)
 
     def __str__(self):
         return self.name

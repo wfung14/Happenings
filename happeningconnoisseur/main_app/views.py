@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .models import Event
+from .models import Event, Vendor
 from django.contrib.auth.decorators import login_required
 from .forms import EventForm
 
@@ -52,3 +52,10 @@ def signup(request):
 
 def about(request):
     return render(request, 'about.html')
+
+
+def vendors_index(request):
+    vendors = Vendor.objects.all()
+    return render(request, 'vendors/index.html', {
+        'vendors': vendors
+    })
