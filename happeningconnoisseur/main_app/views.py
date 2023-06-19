@@ -16,7 +16,9 @@ def events_index(request):
 @login_required
 def events_detail(request, event_id):
     event = Event.objects.get(id=event_id)
-    return render(request, 'events/detail.html', {'event': event})
+    vendors = Vendor.objects.all()
+    context = {'event': event, 'vendors': vendors}
+    return render(request, 'events/detail.html', context)
 
 
 @login_required
@@ -24,12 +26,13 @@ def events_add(request):
     error_message = ''
     event_form = EventForm()
     form = EventForm(request.POST)
+    context = {'event_form': event_form}
     if form.is_valid():
         event = form.save(commit=False)
         event.user = request.user
         new_event = form.save()
         return redirect('/')
-    return render(request, 'events/add.html', {'event_form': event_form})
+    return render(request, 'events/add.html', context)
 
 
 def signup(request):
@@ -55,12 +58,13 @@ def signup(request):
 def about(request):
     return render(request, 'about.html')
 
+
 @login_required
 def vendors_index(request):
     vendors = Vendor.objects.all()
-    return render(request, 'vendors/index.html', {
-        'vendors': vendors
-    })
+    context = {'vendors': vendors}
+    return render(request, 'vendors/index.html', context)
+
 
 def vendor_detail(request, vendor_id):
     vendor = Vendor.objects.get(pk=vendor_id)
