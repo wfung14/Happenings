@@ -9,7 +9,7 @@
         <span class="card-title">{{ vendor.name }}</span>
         <p>Name: {{ vendor.name }}</p>
         <p>Location: {{ vendor.location }}</p>
-        <a href="{% vendor.email %}"><button>Contact</button></a>
+        <a href="mailto:{{ vendor.email }}"><button>Contact</button></a>
       </div>
     </div>
 {% endfor %}

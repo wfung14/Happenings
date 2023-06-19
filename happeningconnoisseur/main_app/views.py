@@ -53,9 +53,14 @@ def signup(request):
 def about(request):
     return render(request, 'about.html')
 
-
+@login_required
 def vendors_index(request):
     vendors = Vendor.objects.all()
     return render(request, 'vendors/index.html', {
         'vendors': vendors
     })
+
+def vendor_detail(request, vendor_id):
+    vendor = Vendor.objects.get(pk=vendor_id)
+    context = {'vendor': vendor}
+    return render(request, 'vendors/index.html', context)
