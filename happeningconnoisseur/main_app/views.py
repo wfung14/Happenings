@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .models import Event
+from .models import Event, Vendor
 from django.contrib.auth.decorators import login_required
 from .forms import EventForm
 
@@ -25,6 +25,8 @@ def events_add(request):
     event_form = EventForm()
     form = EventForm(request.POST)
     if form.is_valid():
+        event = form.save(commit=False)
+        event.user = request.user
         new_event = form.save()
         return redirect('/')
     return render(request, 'events/add.html', {'event_form': event_form})
@@ -52,3 +54,15 @@ def signup(request):
 
 def about(request):
     return render(request, 'about.html')
+
+@login_required
+def vendors_index(request):
+    vendors = Vendor.objects.all()
+    return render(request, 'vendors/index.html', {
+        'vendors': vendors
+    })
+
+def vendor_detail(request, vendor_id):
+    vendor = Vendor.objects.get(pk=vendor_id)
+    context = {'vendor': vendor}
+    return render(request, 'vendors/index.html', context)

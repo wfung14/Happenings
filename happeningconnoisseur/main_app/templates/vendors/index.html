@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Vendor List</h1>
+
+{% for vendor in vendors %}
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ vendor.name }}</span>
+        <p>Name: {{ vendor.name }}</p>
+        <p>Location: {{ vendor.location }}</p>
+        <a href="mailto:{{ vendor.email }}"><button>Contact</button></a>
+      </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
