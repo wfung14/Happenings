@@ -17,7 +17,7 @@
       <span class="card-title">{{ vendor.name }}</span>
         <p>Name: {{ vendor.name }}</p>
         <p>Location: {{ vendor.location }}</p>
-        <a href="mailto:{{ vendor.email }}"><button>Contact</button></a><br>
+        <a href="mailto:{{ vendor.email }}"><button>Contact</button></a><br><br>
       {% endfor %}
     </div>
     <div id="vendor_dropdown">
@@ -25,8 +25,8 @@
         <div>
           {% for vendor in all_vendors %}
           <div>
-            <span>{{ vendor.name }}</span> 
-            <span>{{ vendor.id }}</span>
+            <span>Name: {{ vendor.name }}</span><br>
+            <span>Location: {{ vendor.location }}</span>
             <form action="{% url 'assoc_vendor' event.id vendor.id %}" method="POST">
               {% csrf_token %}
 <input type="submit" value="submit">
