@@ -15,14 +15,13 @@
     <div id="vendor__display">
       {% for vendor in event.vendors.all %}
       <span class="card-title">{{ vendor.name }}</span>
-        <p>Name: {{ vendor.name }}</p>
         <p>Location: {{ vendor.location }}</p>
         <a href="mailto:{{ vendor.email }}"><button>Contact</button></a>
         <form action="{% url 'unassoc_vendor' event.id vendor.id %}" method="POST">
           {% csrf_token %}
           <input type="submit" value="Remove">
         </form>
-        <br><br>
+        <br>
       {% endfor %}
     </div>
     <div id="vendor_dropdown">
@@ -41,4 +40,5 @@
         </div>
     </div>
 
+    <br><br><br>
 {% endblock %}
