@@ -16,10 +16,10 @@
       {% for vendor in event.vendors.all %}
       <span class="card-title">{{ vendor.name }}</span>
         <p>Location: {{ vendor.location }}</p>
-        <a href="mailto:{{ vendor.email }}"><button>Contact</button></a>
-        <form action="{% url 'unassoc_vendor' event.id vendor.id %}" method="POST">
+        <a href="mailto:{{ vendor.email }}"><button class="button is-primary">Contact</button></a>
+        <form action="{% url 'unassoc_vendor' event.id vendor.id %}" method="POST"><br>
           {% csrf_token %}
-          <input type="submit" value="Remove">
+          <input class="button is-primary" type="submit" value="Remove">
         </form>
         <br>
       {% endfor %}
@@ -33,7 +33,7 @@
             <span>Location: {{ vendor.location }}</span>
             <form action="{% url 'assoc_vendor' event.id vendor.id %}" method="POST">
               {% csrf_token %}
-<input type="submit" value="Add">
+<input class="button is-primary" type="submit" value="Add">
             </form>
           </div>
           {% endfor %}
