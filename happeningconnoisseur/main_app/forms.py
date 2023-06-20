@@ -1,11 +1,9 @@
 
 from django.forms import ModelForm
-from .models import Event
+from .models import Event, Vendor
 
 
 class EventForm(ModelForm):
     class Meta:
         model = Event
-        fields = ['name', 'location',
-                  'date', 'type_event']
-        success_url = '/' 
+        fields = ['name', 'location', 'date', 'type_event']
