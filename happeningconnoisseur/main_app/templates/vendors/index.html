@@ -1,17 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Vendor List</h1>
+<h1 style="text-align: center;">Vendor List</h1>
+<table class="highlight centered">
+  <thead>
+    <tr>
 
-{% for vendor in vendors %}
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">{{ vendor.name }}</span>
-        <p>Name: {{ vendor.name }}</p>
-        <p>Location: {{ vendor.location }}</p>
-        <a href="mailto:{{ vendor.email }}"><button>Contact</button></a>
-      </div>
-    </div>
-{% endfor %}
+      <th>Name</th>
+      <th>Location</th>
+    </tr>
+    
+  </thead>
 
+    {% for vendor in vendors %}
+    <tbody>
+
+      
+        <tr>
+          <td>{{ vendor.name }}</td>
+          <td>{{ vendor.location }}</td>
+          <td><a href="mailto:{{ vendor.email }}"><button>Contact</button></a></td>
+        </tr>
+      
+      
+    </tbody>
+    {% endfor %}
+</table>
+    
 {% endblock %}
