@@ -12,19 +12,28 @@
         <p>Type: {{ event.type_event }}</p>
       </div>
     </div>
-
-    <div>
-      <form action="">
-        <input list="vendors" name="vendors">
-        <datalist id="vendors">
-          {% for vendor in vendors %}
-          <option value="{{ vendor.name }}">
-            {% endfor %}
-        </datalist>
-        <input type="submit">
-
-
-      </form>
+    <div id="vendor__display">
+      {% for vendor in event.vendors.all %}
+      <span class="card-title">{{ vendor.name }}</span>
+        <p>Name: {{ vendor.name }}</p>
+        <p>Location: {{ vendor.location }}</p>
+        <a href="mailto:{{ vendor.email }}"><button>Contact</button></a><br>
+      {% endfor %}
+    </div>
+    <div id="vendor_dropdown">
+      <h5>Add Attending Vendor</h5>
+        <div>
+          {% for vendor in all_vendors %}
+          <div>
+            <span>{{ vendor.name }}</span> 
+            <span>{{ vendor.id }}</span>
+            <form action="{% url 'assoc_vendor' event.id vendor.id %}" method="POST">
+              {% csrf_token %}
+<input type="submit" value="submit">
+            </form>
+          </div>
+          {% endfor %}
+        </div>
     </div>
 
 {% endblock %}
