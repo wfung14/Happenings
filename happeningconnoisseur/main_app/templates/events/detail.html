@@ -17,7 +17,12 @@
       <span class="card-title">{{ vendor.name }}</span>
         <p>Name: {{ vendor.name }}</p>
         <p>Location: {{ vendor.location }}</p>
-        <a href="mailto:{{ vendor.email }}"><button>Contact</button></a><br><br>
+        <a href="mailto:{{ vendor.email }}"><button>Contact</button></a>
+        <form action="{% url 'unassoc_vendor' event.id vendor.id %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Remove">
+        </form>
+        <br><br>
       {% endfor %}
     </div>
     <div id="vendor_dropdown">
@@ -29,7 +34,7 @@
             <span>Location: {{ vendor.location }}</span>
             <form action="{% url 'assoc_vendor' event.id vendor.id %}" method="POST">
               {% csrf_token %}
-<input type="submit" value="submit">
+<input type="submit" value="Add">
             </form>
           </div>
           {% endfor %}
