@@ -12,6 +12,9 @@
         <p>Type: {{ event.type_event }}</p>
       </div>
     </div>
+    <div class="card-action">
+      <a href="{% url 'events_delete' event.id %}">Delete</a>
+    </div>
     <div id="vendor__display">
       {% for vendor in event.vendors.all %}
       <span class="card-title">{{ vendor.name }}</span>
