@@ -19,4 +19,6 @@ urlpatterns = [
         views.unassoc_vendor,
         name="unassoc_vendor",
     ),
+    path("events/<int:pk>/delete/", views.EventDelete.as_view(), name="events_delete"),
+    path("events/<int:pk>/update/", views.EventUpdate.as_view(), name="events_update"),
 ]

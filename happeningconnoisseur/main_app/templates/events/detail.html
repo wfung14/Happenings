@@ -22,6 +22,10 @@
     {% endif %}
 
     <div class="event_col">
+    <div class="card-action">
+      <a href="{% url 'events_update' event.id %}"><input class="button is-primary" type="submit" value="Edit"></a>
+      <a href="{% url 'events_delete' event.id %}"><input class="button is-primary" type="submit" value="Delete"></a>
+    </div>
       {% for vendor in event.vendors.all %}
       <div id="vendor_display">
         <p><b>{{ vendor.name }}</b> | Location: {{ vendor.location }}</p>

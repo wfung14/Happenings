@@ -2,6 +2,7 @@ import uuid
 import boto3
 import os
 from django.shortcuts import render, redirect
+from django.views.generic.edit import DeleteView, UpdateView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Event, Vendor
@@ -93,3 +94,13 @@ def assoc_vendor(request, event_id, vendor_id):
 def unassoc_vendor(request, event_id, vendor_id):
     Event.objects.get(id=event_id).vendors.remove(vendor_id)
     return redirect("detail", event_id=event_id)
+
+
+class EventDelete(DeleteView):
+    model = Event
+    success_url = "/"
+
+
+class EventUpdate(UpdateView):
+    model = Event
+    fields = ["name", "location", "date", "type_event"]
