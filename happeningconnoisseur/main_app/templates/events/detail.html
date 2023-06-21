@@ -16,17 +16,18 @@
         <p>Date: {{ event.date }}</p>
         <p>Type: {{ event.type_event }}</p>
       </div>
+      <div class="edit_del" class="card-action">
+        <a href="{% url 'events_update' event.id %}"><input class="button is-primary" type="submit" value="Edit"></a>
+        <a href="{% url 'events_delete' event.id %}"><input class="button is-primary" type="submit" value="Delete"></a>
+      </div>
     </div>
+
     {% if event.vendors.all %}
     <h5>Attending Vendors</h5>
     {% endif %}
 
-    <div class="event_col">
-    <div class="card-action">
-      <a href="{% url 'events_update' event.id %}"><input class="button is-primary" type="submit" value="Edit"></a>
-      <a href="{% url 'events_delete' event.id %}"><input class="button is-primary" type="submit" value="Delete"></a>
-    </div>
       {% for vendor in event.vendors.all %}
+      <div class="event_col">
       <div id="vendor_display">
         <p><b>{{ vendor.name }}</b> | Location: {{ vendor.location }}</p>
         <a href="mailto:{{ vendor.email }}"><button class="button is-primary">Contact</button></a>
@@ -39,7 +40,7 @@
     {% endfor %}
   </div>
       {% if all_vendors %}
-      <h5>Add Vendor</h5>
+      <h5 class="add_vendor">Add Vendor</h5>
       {% endif %}
           {% for vendor in all_vendors %}
           <div id="vendor_dropdown">

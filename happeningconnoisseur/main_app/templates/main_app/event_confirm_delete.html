@@ -2,13 +2,14 @@
 
 {% block content %}
   <h1>Delete Event</h1>
-
+<div class="del_page">  
   <h4>Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?</h4>
-
+  
   <form action="" method="POST">
     {% csrf_token %}
     <input type="submit" value="Yes - Delete!" class="btn">
     <a href="{% url 'detail' event.id %}">Cancel</a>
   </form>
+</div>
 {% endblock %}
 
