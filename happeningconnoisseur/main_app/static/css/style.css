@@ -14,9 +14,13 @@ footer.page-footer {
 }
 
 .navbar-fixed nav {
-  background-color: rgb(0, 17, 255);
+  background-color: #002020;
 }
 
 .page-footer {
-  background-color: rgb(0, 17, 255);
+  background-color: #002020;
 } 
+
+.right input {
+  margin-top: 2.5vh;
+}
