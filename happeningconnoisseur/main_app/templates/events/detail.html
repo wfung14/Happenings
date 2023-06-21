@@ -13,8 +13,8 @@
       </div>
     </div>
     <div class="card-action">
-      <a href="{% url 'events_update' event.id %}">Edit</a>
-      <a href="{% url 'events_delete' event.id %}">Delete</a>
+      <a href="{% url 'events_update' event.id %}"><input class="button is-primary" type="submit" value="Edit"></a>
+      <a href="{% url 'events_delete' event.id %}"><input class="button is-primary" type="submit" value="Delete"></a>
     </div>
     <div id="vendor__display">
       {% for vendor in event.vendors.all %}
