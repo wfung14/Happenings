@@ -44,7 +44,7 @@ def events_add(request):
             url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
             # we can assign to cat_id or cat (if you have a cat object)
             Event.objects.create(photo=url, name=list(request.POST.values())[1], location=list(request.POST.values())[2], date=list(request.POST.values())[3], type_event=list(request.POST.values())[4])
-            form.save()
+            # form.save()
             return redirect("/")
         except Exception as e:
             print('An error occurred uploading file to S3')
