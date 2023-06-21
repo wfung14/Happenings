@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import DeleteView, UpdateView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Event, Vendor
@@ -79,4 +79,9 @@ def unassoc_vendor(request, event_id, vendor_id):
 
 class EventDelete(DeleteView):
     model = Event
-    success_url = '/'
+    success_url = "/"
+
+
+class EventUpdate(UpdateView):
+    model = Event
+    fields = ["name", "location", "date", "type_event"]
