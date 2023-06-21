@@ -22,5 +22,9 @@ footer.page-footer {
 } 
 
 .right input {
-  margin-top: 2.5vh;
+  margin-top: 15%;
+}
+
+.right a:hover {
+  color: #53F1F1;
 }
