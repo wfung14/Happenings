@@ -33,6 +33,11 @@ h1 {
   text-align: center;
 }
 
+h5 {
+  text-align: center;
+  text-decoration: underline dotted;
+}
+
 .card p, span {
   text-align: center;
 }
@@ -49,7 +54,7 @@ margin-bottom: 15px;
 }
 
 .event_col form {
-margin-top: -2.3vh;
+margin-top: -2.6vh;
 float: left;
 }
 
