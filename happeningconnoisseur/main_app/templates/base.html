@@ -12,6 +12,7 @@
       content="ie=edge"
     />
     <title>Happenings</title>
+    <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link
       rel="stylesheet"
@@ -37,14 +38,14 @@
             </li>
           </ul>
           <ul class="right">
-            <li><a href="/about">About</a></li>
+            <li><a href="/about">About Us</a></li>
             {% if user.is_authenticated %}
             <li><a href="/vendors">View Vendors</a></li>
             <li><a href="/events/add">Add Event</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <li><a href="{% url 'logout' %}"><input class="button is-primary" type="submit" value="Log Out"></a></li>
             {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li><a href="{% url 'signup' %}"><input class="button is-primary" type="submit" value="Sign Up"></a></li>
+            <li><a href="{% url 'login' %}"><input class="button is-primary" type="submit" value="Log In"></a></li>
             {% endif %}
           </ul>
         </div>
