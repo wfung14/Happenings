@@ -28,3 +28,48 @@ footer.page-footer {
 .right a:hover {
   color: #53F1F1;
 }
+
+h1 {
+  text-align: center;
+}
+
+h5 {
+  text-align: center;
+  text-decoration: underline dotted;
+}
+
+.card p, span {
+  text-align: center;
+}
+
+.event_col p {
+  width: 50%;
+float: left;
+margin-bottom: 15px;
+}
+
+.event_col a {
+  width: 15%;
+  float: left;
+}
+
+.event_col form {
+margin-top: -2.6vh;
+float: left;
+}
+
+#vendor_display {
+margin-bottom: 5%;
+}
+
+#vendor_dropdown form {
+float: left;
+margin-bottom: 2%;
+}
+
+#vendor_dropdown p {
+  width: 50%;
+  display:inline;
+  float: left;
+  margin-left: 1%;
+}

@@ -3,9 +3,10 @@
 <div class="box">
   <h1>Add Event</h1>
   <div class="col s6">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       {{ event_form.as_p }}
+      <input type="file" name="photo-file"><br><br>
       <input type="submit" class="btn" value="Add Event" />
     </form>
   </div>

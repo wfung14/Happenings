@@ -8,6 +8,11 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">{{ event.name }}</span>
+        {% if event.photo %}
+      <img class="responsive-img card-panel" src="{{ event.photo }}">
+      {% else %}
+      <div class="card-panel teal-text center-align">No Photo Uploaded</div>
+      {% endif %}
         <p>Name: {{ event.name }}</p>
         <p>Location: {{ event.location }}</p>
         <p>Date: {{ event.date }}</p>

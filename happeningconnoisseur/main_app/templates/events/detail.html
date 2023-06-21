@@ -6,43 +6,51 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">{{ event.name }}</span>
+        {% if event.photo %}
+        <img class="responsive-img card-panel" src="{{ event.photo }}">
+        {% else %}
+        <div class="card-panel teal-text center-align">No Photo Uploaded</div>
+        {% endif %}
         <p>Name: {{ event.name }}</p>
         <p>Location: {{ event.location }}</p>
         <p>Date: {{ event.date }}</p>
         <p>Type: {{ event.type_event }}</p>
       </div>
     </div>
+    {% if event.vendors.all %}
+    <h5>Attending Vendors</h5>
+    {% endif %}
+
+    <div class="event_col">
     <div class="card-action">
       <a href="{% url 'events_update' event.id %}"><input class="button is-primary" type="submit" value="Edit"></a>
       <a href="{% url 'events_delete' event.id %}"><input class="button is-primary" type="submit" value="Delete"></a>
     </div>
-    <div id="vendor__display">
       {% for vendor in event.vendors.all %}
-      <span class="card-title">{{ vendor.name }}</span>
-        <p>Location: {{ vendor.location }}</p>
+      <div id="vendor_display">
+        <p><b>{{ vendor.name }}</b> | Location: {{ vendor.location }}</p>
         <a href="mailto:{{ vendor.email }}"><button class="button is-primary">Contact</button></a>
         <form action="{% url 'unassoc_vendor' event.id vendor.id %}" method="POST"><br>
           {% csrf_token %}
           <input class="button is-primary" type="submit" value="Remove">
         </form>
         <br>
-      {% endfor %}
     </div>
-    <div id="vendor_dropdown">
-      <h5>Add Attending Vendor</h5>
-        <div>
+    {% endfor %}
+  </div>
+      {% if all_vendors %}
+      <h5>Add Vendor</h5>
+      {% endif %}
           {% for vendor in all_vendors %}
-          <div>
-            <span>Name: {{ vendor.name }}</span><br>
-            <span>Location: {{ vendor.location }}</span>
+          <div id="vendor_dropdown">
+            <div>
+            <p><b>{{ vendor.name }}</b> | Location: {{ vendor.location }}</p>
             <form action="{% url 'assoc_vendor' event.id vendor.id %}" method="POST">
               {% csrf_token %}
 <input class="button is-primary" type="submit" value="Add">
             </form>
+            </div>
           </div>
           {% endfor %}
-        </div>
-    </div>
-
     <br><br><br>
 {% endblock %}
