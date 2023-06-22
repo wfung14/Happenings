@@ -28,9 +28,9 @@
 
 ***
 
-### **_ERD_**
+### **_Website Demo_**
 
-![ERD](pictures/ERD.png)
+![ERD](pictures/demo.gif)
 
 ***
 
