@@ -27,12 +27,8 @@ def events_detail(request, event_id):
 @login_required
 def events_add(request):
     event_form = EventForm()
-    form = EventForm(request.POST)
     context = {"event_form": event_form}
     photo_file = request.FILES.get('photo-file', None)
-    if form.is_valid():
-        event = form.save(commit=False)
-        event.user = request.user
     if photo_file:
         s3 = boto3.client('s3')
         # need a unique "key" for S3 / needs image file extension too
@@ -43,9 +39,9 @@ def events_add(request):
             s3.upload_fileobj(photo_file, bucket, key)
             # build the full url string
             url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
-            # we can assign to cat_id or cat (if you have a cat object)
-            Event.objects.create(photo=url, name=list(request.POST.values())[1], location=list(request.POST.values())[2], date=list(request.POST.values())[3], type_event=list(request.POST.values())[4])
-            # form.save()
+            
+            Event.objects.create(photo=url, name=list(request.POST.values())[1], location=list(request.POST.values())[2], date=list(request.POST.values())[3], type_event=list(request.POST.values())[4], user=request.user)
+            
             return redirect("/")
         except Exception as e:
             print('An error occurred uploading file to S3')
