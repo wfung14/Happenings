@@ -1,5 +1,12 @@
-
 {% extends 'base.html' %} {% block content %}
-<h1>About Happenings</h1>
-
+{% load static %}
+<h1>About Happenings</h1><br>
+<p style="text-align: center;">Everybody's constantly on the go nowadays, but nobody ever has a clue as to why they're so busy. Having to constantly put events in your calendar is tedious. Our service allows users to browse, create and promote local events.<br><br>
+<b>Keep track of all of your Happenings in one place, without cluttering your mind. <br>Discover events that match your passions or create your own!</b></p>
+<h5>Meet Our Team</h5>
+<div class="img">
+  <img src="{% static 'images/remy.JPeG' %}" class="circle" alt="Image">
+  <img src="{% static 'images/jon.jpg' %}" class="circle" alt="Image">
+  <img src="{% static 'images/IMG_1808.JPG' %}" class="circle" alt="Image">
+</div>
 {% endblock %}
