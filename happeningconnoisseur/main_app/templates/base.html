@@ -24,6 +24,7 @@
   href="{% static 'css/style.css' %}"
 />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <header class="navbar-fixed">
@@ -38,23 +39,65 @@
               >
             </li>
           </ul>
-          <ul class="right">
-            <li><a href="/about">About Us</a></li>
+          <div class="drpdwn">
+            <div class="right">
+
+              <a href="#">
+                <i class="hamburger" onclick="myFunction()">menu</i>
+              </a>
+            </div><br>
+          <div id="myDropdown" class="drpdwn-content">
+          <ul>
             {% if user.is_authenticated %}
-            <li><a href="/vendors">View Vendors</a></li>
-            <li><a href="/events/add">Add Event</a></li>
-            <li><a href="{% url 'logout' %}"><input class="button is-primary" type="submit" value="Log Out"></a></li>
-            {% else %}
-            <li><a href="{% url 'signup' %}"><input class="button is-primary" type="submit" value="Sign Up"></a></li>
-            <li><a href="{% url 'login' %}"><input class="button is-primary" type="submit" value="Log In"></a></li>
+            <li><a href="/events/add">Add Event</a></li><br>
+            <li><a href="/vendors">View Vendors</a></li><br>
+            <li><a href="/about">About Us</a></li><br>
+            <div class="login_btns">
+              <li><a href="{% url 'logout' %}"><input class="button is-primary" type="submit" value="Log Out"></a></li><br>
+              {% else %}
+              <li><a href="{% url 'signup' %}"><input class="button is-primary" type="submit" value="Sign Up"></a></li><br>
+              <li><a href="{% url 'login' %}"><input class="button is-primary" type="submit" value="Log In"></a></li>
+            </div>
             {% endif %}
           </ul>
         </div>
+        </div>
+        </div>
       </nav>
     </header>
-    <main class="container">{% block content %} {% endblock %}</main>
+    <main class="container">{% block content %} 
+      
+    
+      {% endblock %} 
+      <script>/* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }</script>
+    </main>
+
+
+
     <footer class="page-footer">
       <div class="right">All Rights Reserved, &copy; {% now 'Y' %} Happenings &nbsp;</div>
     </footer>
+  
+  
+  
+  
   </body>
 </html>

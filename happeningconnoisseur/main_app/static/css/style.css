@@ -1,3 +1,6 @@
+
+
+
 body {
   display: flex;
   min-height: 100vh;
@@ -54,13 +57,9 @@ margin-bottom: 15px;
   float: left;
 }
 
-.event_col form {
-margin-top: -2.6vh;
-float: left;
-}
-
 #vendor_display {
 margin-bottom: 5%;
+display: flex;
 }
 
 #vendor_dropdown form {
@@ -101,3 +100,52 @@ margin-top: 0;
 .img img{
   width: 30%;
 }
+
+.hamburger {
+  font-family: 'Material Icons';
+  display: inline;
+}
+
+.right {
+  margin-right: 4%;
+}
+
+
+
+.drpdwn-content {
+  display: none;
+  position: absolute;
+  background-color: #002020;
+  min-width: 160px;
+  z-index: 1;
+  float: left;
+  right:0%;
+  width: 25%;
+}
+
+.drpdwn-content a:hover {
+  color: #53F1F1;
+}
+
+.drpdwn li {
+  width: 100%;
+}
+
+.login_btns .is-primary {
+  margin-left: 35%;
+  margin-top: 2%;
+  width: 100px;
+}
+
+
+.silo1 {
+  margin-right: 2%;
+}
+
+#vendor_display p {
+margin-right: 2%;
+}
+
+
+
+.show {display:block;}

@@ -30,10 +30,14 @@
       <div class="event_col">
       <div id="vendor_display">
         <p><b>{{ vendor.name }}</b> | Location: {{ vendor.location }}</p>
-        <a href="mailto:{{ vendor.email }}"><button class="button is-primary">Contact</button></a>
-        <form action="{% url 'unassoc_vendor' event.id vendor.id %}" method="POST"><br>
-          {% csrf_token %}
-          <input class="button is-primary" type="submit" value="Remove">
+        <div class="silo1">
+          <a href="mailto:{{ vendor.email }}"><button class="button is-primary">Contact</button></a>
+        </div>
+        <div class="silo2">
+          <form action="{% url 'unassoc_vendor' event.id vendor.id %}" method="POST">
+            {% csrf_token %}
+            <input class="button is-primary" type="submit" value="Remove">
+          </div>
         </form>
         <br>
     </div>
