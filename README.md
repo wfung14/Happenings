@@ -1,6 +1,6 @@
 # Happenings
 ## Date: 06/15/2023
-### By: Wilson Fung, Jeremy Cox, Jonathan Ortiz-Ryals
+### By: [Wilson Fung](https://www.linkedin.com/in/wilson-fung-dev/), [Jeremy Cox](https://www.linkedin.com/in/jeremy-cox-), [Jonathan Ortiz-Ryals](https://www.linkedin.com/in/jonathan-ortiz-ryals/)
 
 ***
 
@@ -11,7 +11,7 @@
 
 ### **_Application_**
 
-#### You can use the deployed app [here]()
+#### You can use the deployed app [here](https://happenings-events.fly.dev/)
 
 #### You can track the progress of future updates here: [Trello](https://trello.com/b/H4M23R4b/happenings).
 
